@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prueba/core/helpers/responsive.dart';
 
 class ErrorWidgetCustom extends StatelessWidget {
   final VoidCallback onTap;
@@ -6,11 +7,16 @@ class ErrorWidgetCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveHelper.init(context);
     final themedata = Theme.of(context);
+    final containerWidth = ResponsiveHelper.width(80);
+    final buttonFontSize = ResponsiveHelper.fontSize(14);
+    final borderRadius = BorderRadius.circular(ResponsiveHelper.width(3));
+
     return Center(
       child: Container(
-        width: 300,
-        decoration: BoxDecoration(),
+        width: containerWidth,
+        decoration: const BoxDecoration(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,11 +30,11 @@ class ErrorWidgetCustom extends StatelessWidget {
             ElevatedButton(
               onPressed: onTap,
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(borderRadius: .circular(15)),
+                shape: RoundedRectangleBorder(borderRadius: borderRadius),
               ),
               child: Text(
                 "ReIntentar",
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                style: TextStyle(fontSize: buttonFontSize, color: Colors.white),
               ),
             ),
           ],

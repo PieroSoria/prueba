@@ -20,15 +20,17 @@ class ApiListPage extends StatefulWidget {
 class _ApiListPageState extends State<ApiListPage> {
   @override
   void initState() {
-    final appBloc = context.read<AppBloc>();
-    appBloc.add(AppEvent.onGetListProductDataApi());
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final appBloc = BlocProvider.of<AppBloc>(context, listen: false);
+      appBloc.add(AppEvent.onGetListProductDataApi());
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     ResponsiveHelper.init(context);
-    final appBloc = context.read<AppBloc>();
+    final appBloc = BlocProvider.of<AppBloc>(context);
     final horizontalPadding = ResponsiveHelper.paddingHorizontal(8);
     final titleFontSize = ResponsiveHelper.fontSize(25);
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prueba/core/helpers/responsive.dart';
 
 class InputCustomCore extends StatefulWidget {
   final TextEditingController controller;
@@ -68,6 +69,7 @@ class _InputCustomCoreState extends State<InputCustomCore> {
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveHelper.init(context);
     final themedata = Theme.of(context);
     return Column(
       crossAxisAlignment: .start,
@@ -95,7 +97,9 @@ class _InputCustomCoreState extends State<InputCustomCore> {
           decoration: InputDecoration(
             contentPadding:
                 widget.contentPadding ??
-                const EdgeInsets.symmetric(horizontal: 25),
+                EdgeInsets.symmetric(
+                  horizontal: ResponsiveHelper.paddingHorizontal(6),
+                ),
             suffixIcon: widget.isPassword
                 ? GestureDetector(
                     onTap: () {
