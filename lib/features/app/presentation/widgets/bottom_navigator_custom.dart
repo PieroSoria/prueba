@@ -12,8 +12,8 @@ class BottomNavigatorCustom extends StatefulWidget {
 
 class _BottomNavigatorCustomState extends State<BottomNavigatorCustom> {
   List<Map<String, dynamic>> listItems = [
-    {'icon': Icons.language_rounded, 'title': "Network"},
-    {'icon': Icons.storage_rounded, 'title': "DataBase"},
+    {'icon': Icons.language_rounded},
+    {'icon': Icons.storage_rounded},
   ];
 
   @override
